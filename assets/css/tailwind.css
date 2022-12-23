@@ -1,0 +1,36 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply tracking-wider font-functional bg-[#eeeeee] text-black text-xs xl:text-base 2xl:text-xl;
+  }
+  body {
+    @apply overflow-x-hidden;
+  }
+
+  @font-face {
+    font-family: Satisfy;
+    font-weight: normal;
+    font-display: swap;
+    src: url('./assets/fonts/Satisfy-Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: Dosis;
+    font-weight: normal;
+    font-display: swap;
+    src: url('./assets/fonts/Dosis-VariableFont_wght.ttf') format('truetype');
+  }
+}
+
+@layer components {
+  .link_rtl {
+    @apply after:py-4 after:-top-2.5 after:xl:-top-1 after:block after:border-y-2 after:w-0 after:transition-all after:absolute  after:right-0 after:hover:w-full;
+  }
+  .link_ltr {
+    @apply after:py-4 after:-top-8  after:xl:-top-8 after:block after:border-y-2 after:w-0 after:transition-all after:relative  after:left-0 after:hover:w-full;
+  }
+}
