@@ -11,18 +11,15 @@ const headerSiteLinks: Array<{ text: string; address: string }> = [
   { text: 'HOME', address: '/' },
   { text: 'ABOUT', address: '/about' },
   { text: 'ACCOMMODATION', address: '/accommodation' },
-  { text: 'FACILITIES', address: '/facilities' },
+  { text: 'FEATURES', address: '/features' },
   { text: 'LOCATION', address: '/location' },
   { text: 'SERVICES', address: '/services' },
 ];
 const menu = ref<HTMLDivElement | null>(null);
-const redirect = (arg: string) => {
-  location.href = `http://localhost:3000${arg}`;
-};
 
 watch(
   () => props.setShowMenu,
-  (newprops, oldprops) => {
+  () => {
     if (process.client && props.setShowMenu) {
       gsap.from(menu?.value, { duration: 1, ease: 'power2.out', x: -300 });
     }
@@ -37,20 +34,6 @@ watch(
     <div
       class="flex flex-col -space-y-6 items-center min-h-screen mt-40 text-xl"
     >
-      <!-- <div
-        v-for="link in headerSiteLinks"
-        :key="link.text"
-        :to="link.address"
-        @click="
-          emit('listenForRouteChange');
-          navigateTo(link.address);
-          // redirect(link.address);
-        "
-      >
-        <p class="link_ltr after:border-white">
-          {{ link.text }}
-        </p>
-      </div> -->
       <NuxtLink
         v-for="link in headerSiteLinks"
         :key="link.text"

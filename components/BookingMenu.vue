@@ -10,7 +10,7 @@ const searchIcon = ref<HTMLDivElement | null>(null);
 const onListener = ref<HTMLDivElement | null>(null);
 const offListener = ref<HTMLDivElement | null>(null);
 const bookingMenu = ref<HTMLDivElement | null>(null);
-const bookingDates = ref<bookingDates>(null);
+const bookingDates = ref<bookingDates>();
 const showCalendar = ref<boolean>(false);
 const showRooms = ref<boolean>(false);
 
@@ -45,15 +45,15 @@ onMounted(() => {
   }
   if (process.client) {
     onListener.value = searchIcon.value;
-    searchIcon.value.addEventListener('mouseover', on);
+    searchIcon.value!.addEventListener('mouseover', on);
     offListener.value = searchIcon.value;
-    searchIcon.value.addEventListener('mouseleave', off);
+    searchIcon.value!.addEventListener('mouseleave', off);
   }
 });
 
 onUnmounted(() => {
-  onListener.value.removeEventListener('mouseover', on);
-  offListener.value.removeEventListener('mouseleave', off);
+  onListener.value!.removeEventListener('mouseover', on);
+  offListener.value!.removeEventListener('mouseleave', off);
 });
 </script>
 <template>
@@ -96,7 +96,7 @@ onUnmounted(() => {
             >
               -
             </p>
-            <p :class="`text-white text-xl`">
+            <p class="text-white text-xl">
               {{ guestsNumber }}
             </p>
             <p

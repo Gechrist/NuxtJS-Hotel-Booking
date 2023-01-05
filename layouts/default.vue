@@ -1,23 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+import { ref } from 'vue';
 import TheFooter from '../components/TheFooter.vue';
 
-gsap.registerPlugin(ScrollTrigger);
 const showMenu = ref<boolean>(false);
 const whiteMenu = ref<boolean>(false);
-const footer = ref<InstanceType<typeof TheFooter> | null>(null);
-
-ScrollTrigger.create({
-  trigger: footer.value,
-  start: 'top bottom',
-  preventOverlaps: true,
-  onToggle: (self) => {
-    self.isActive ? (whiteMenu.value = false) : (whiteMenu.value = true);
-  },
-});
-onMounted(() => ScrollTrigger.refresh());
 </script>
 <template>
   <div class="relative">
@@ -47,7 +33,10 @@ onMounted(() => ScrollTrigger.refresh());
         />
         CLOSE
       </div>
-      <TheMenu :setShowMenu="showMenu" />
+      <TheMenu
+        :setShowMenu="showMenu"
+        @listen-for-route-change="showMenu = false"
+      />
     </nav>
     <BookNowButton
       :color="`${showMenu ? 'white' : 'black'}`"
@@ -56,7 +45,10 @@ onMounted(() => ScrollTrigger.refresh());
     />
     <slot />
     <footer>
-      <TheFooter ref="footer" />
+      <TheFooter
+        @listen-for-white-menu="whiteMenu = true"
+        @listen-for-black-menu="whiteMenu = false"
+      />
     </footer>
   </div>
 </template>

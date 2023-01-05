@@ -22,7 +22,7 @@ const error = reactive<{
 }>({ country: false, tel: '', email: '', fName: '', lName: '' });
 
 const props = defineProps({
-  dates: { type: Object as PropType<bookingDates>, required: true },
+  dates: { type: Object as PropType<bookingDates | undefined>, required: true },
   rType: String,
   rPrice: Number,
   bookedUnits: Number,
@@ -31,16 +31,18 @@ const props = defineProps({
 });
 
 const bookedDays: ComputedRef<number> = computed(() => {
-  let date_1 = new Date(props.dates.end.toString());
-  let date_2 = new Date(props.dates.start.toString());
+  let date_1 = new Date(props.dates!.end.toString());
+  let date_2 = new Date(props.dates!.start.toString());
 
   let difference = date_1.getTime() - date_2.getTime();
   let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
   return TotalDays;
 });
 
-const bookingTotal: ComputedRef<number> = computed(() => {
-  return props.rPrice * props.bookedUnits * bookedDays.value;
+const bookingTotal: ComputedRef<number | undefined> = computed(() => {
+  if (props.rPrice && props.bookedUnits) {
+    return props.rPrice * props.bookedUnits * bookedDays.value;
+  }
 });
 
 const countries = [
@@ -284,11 +286,13 @@ const validateForm = () => {
 
 const bookRooms = async () => {
   let bookedRoomNumbers: Array<string> = [];
-  for (let i = 0; i < props.bookedUnits; i++) {
-    bookedRoomNumbers.push(props.availableUnits[i]);
+  if (props.bookedUnits && props.availableUnits) {
+    for (let i = 0; i < props.bookedUnits; i++) {
+      bookedRoomNumbers.push(props.availableUnits[i]);
+    }
   }
   loading.value = true;
-  await refreshNuxtData();
+  clearNuxtData();
   controller?.abort();
   try {
     controller = new AbortController();
@@ -297,10 +301,13 @@ const bookRooms = async () => {
       pending,
       error,
     } = await useFetch<void>(
-      `/api/bookRooms?startDate=${props.dates.start}&endDate=${props.dates.end}&fName=${fName.value}&lName=${lName.value}&bookedUnits=${bookedRoomNumbers}`,
-      { initialCache: false, signal: controller.signal }
+      `/api/bookRooms?startDate=${props.dates!.start}&endDate=${
+        props.dates!.end
+      }&fName=${fName.value}&lName=${
+        lName.value
+      }&bookedUnits=${bookedRoomNumbers}`,
+      { signal: controller.signal }
     );
-    console.log('res', response);
     if (response.value == 'confirmed') {
       confirmed.value = true;
     }
@@ -310,17 +317,17 @@ const bookRooms = async () => {
         'Something went wrong. If the error persists, please contact the administrator');
     }
     loading.value = pending.value;
-  } catch (e) {
+  } catch (e: any) {
     err.value =
       'Something went wrong. If the error persists, please contact the administrator';
     console.log(e.message);
   }
 };
 const formattedStartDate = computed(() => {
-  return props.dates.start.toString().substring(0, 15);
+  return props.dates!.start.toString().substring(0, 15);
 });
 const formattedEndDate = computed(() => {
-  return props.dates.end.toString().substring(0, 15);
+  return props.dates!.end.toString().substring(0, 15);
 });
 </script>
 

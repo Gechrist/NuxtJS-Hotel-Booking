@@ -1,42 +1,25 @@
-# Nuxt 3 Minimal Starter
+# [Nuxt 3 Resort Presentation and Booking](https://dr-nikolaosmavropoulos.vercel.app/)
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+## OVERVIEW
 
-## Setup
+This is a Resort Presentation and Booking site built with [Nuxt 3](https://vuejs.org/) and [TailwindCSS](https://tailwindcss.com/), deployed with [Vercel](https://next-js-imdb.vercel.app). The site makes use of AWS Services, specifically Amazon DynamoDB, Amazon Lambda functions and Amazon API Gateway.
 
-Make sure to install the dependencies:
+## INSTALL INSTRUCTIONS
 
-```bash
-# yarn
-yarn install
+Just clone the repository and run npm install & npm run dev:
 
-# npm
+```
+git clone https://github.com/Gechrist/VueJS-Presentation.git
 npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
 npm run dev
+
 ```
 
-## Production
+## LICENSE
 
-Build the application for production:
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-```bash
-npm run build
-```
+## AUTHOR
 
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+- [Profile](https://github.com/Gechrist/)
+- [Email](mailto:gchris@hotmail.co.uk)

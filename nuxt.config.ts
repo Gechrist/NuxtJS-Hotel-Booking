@@ -4,14 +4,33 @@ export default defineNuxtConfig({
     shim: false,
   },
   build: {
-    transpile: ['gsap'],
+    transpile: ['gsap', 'vue-google-map'],
   },
-  modules: ['@nuxtjs/tailwindcss'],
-  tailwindcss: {
-    cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.ts',
-    exposeConfig: false,
-    injectPosition: 0,
-    viewer: true,
+  runtimeConfig: {
+    public: { GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY },
+  },
+  routeRules: {
+    '/': { static: true },
+    '/about': { static: true },
+    '/accommmodation': { static: true },
+    '/cancellations': { static: true },
+    '/contact': { static: true },
+    '/features': { static: true },
+    '/followus': { static: true },
+    '/location': { static: true },
+    '/privacypolicy': { static: true },
+    '/services': { static: true },
+  },
+  css: ['~/assets/css/tailwind.css'],
+  postcss: {
+    plugins: {
+      tailwindcss: {
+        config: 'tailwind.config.ts',
+        exposeConfig: false,
+        injectPosition: 0,
+        viewer: true,
+      },
+      autoprefixer: {},
+    },
   },
 });

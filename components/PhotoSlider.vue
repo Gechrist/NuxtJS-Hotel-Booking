@@ -4,19 +4,19 @@ import { gsap } from 'gsap';
 
 const leisureImages: { address: string; alttext: string }[] = [
   {
-    address: '../assets/images/hand_touching_water.webp',
+    address: '/_nuxt/assets/images/hand_touching_water.webp',
     alttext: 'imaginary bungalows hand in water',
   },
   {
-    address: '../assets/images/meditation.webp',
+    address: '/_nuxt/assets/images/meditation.webp',
     alttext: 'imaginary bungalows meditation',
   },
   {
-    address: '../assets/images/woman_in_water.webp',
+    address: '/_nuxt/assets/images/woman_in_water.webp',
     alttext: 'imaginary bungalows woman in water',
   },
   {
-    address: '../assets/images/man_relaxing_water.webp',
+    address: '/_nuxt/assets/images/man_relaxing_water.webp',
     alttext: 'imaginary bungalows man relaxing water',
   },
 ];
@@ -59,7 +59,7 @@ onMounted(() => {
   ];
   imageArrays.map((img, index) => {
     img.alt = leisureImages[index].alttext;
-    img.src = leisureImages[index].address;
+    img.src = `${leisureImages[index].address}`;
     // console.log(img);
     img.onload = () => cutImageUp(img);
   });
@@ -74,7 +74,7 @@ onMounted(() => {
         canvas.width = 1280;
         canvas.height = 830;
         const context = canvas.getContext('2d');
-        context.drawImage(
+        context!.drawImage(
           image,
           x * 1230,
           y * 830,
@@ -110,47 +110,47 @@ onMounted(() => {
 
     switch (image) {
       case medImage: {
-        const medImageElementA: ImageElement = meditDiv1.value;
-        medImageElementA.src = medImagePieces[0];
-        const medImageElementB: ImageElement = meditDiv2.value;
-        medImageElementB.src = medImagePieces[2];
-        const medImageElementC: ImageElement = meditDiv3.value;
-        medImageElementC.src = medImagePieces[1];
-        const medImageElementD: ImageElement = meditDiv4.value;
-        medImageElementD.src = medImagePieces[3];
+        const medImageElementA: ImageElement | null = meditDiv1.value;
+        medImageElementA!.src = medImagePieces[0];
+        const medImageElementB: ImageElement | null = meditDiv2.value;
+        medImageElementB!.src = medImagePieces[2];
+        const medImageElementC: ImageElement | null = meditDiv3.value;
+        medImageElementC!.src = medImagePieces[1];
+        const medImageElementD: ImageElement | null = meditDiv4.value;
+        medImageElementD!.src = medImagePieces[3];
         break;
       }
       case manImage: {
-        const manImageElementA: ImageElement = manDiv1.value;
-        manImageElementA.src = manImagePieces[0];
-        const manImageElementB: ImageElement = manDiv2.value;
-        manImageElementB.src = manImagePieces[2];
-        const manImageElementC: ImageElement = manDiv3.value;
-        manImageElementC.src = manImagePieces[1];
-        const manImageElementD: ImageElement = manDiv4.value;
-        manImageElementD.src = manImagePieces[3];
+        const manImageElementA: ImageElement | null = manDiv1.value;
+        manImageElementA!.src = manImagePieces[0];
+        const manImageElementB: ImageElement | null = manDiv2.value;
+        manImageElementB!.src = manImagePieces[2];
+        const manImageElementC: ImageElement | null = manDiv3.value;
+        manImageElementC!.src = manImagePieces[1];
+        const manImageElementD: ImageElement | null = manDiv4.value;
+        manImageElementD!.src = manImagePieces[3];
         break;
       }
       case handImage: {
-        const handImageElementA: ImageElement = handDiv1.value;
-        handImageElementA.src = handImagePieces[0];
-        const handImageElementB: ImageElement = handDiv2.value;
-        handImageElementB.src = handImagePieces[2];
-        const handImageElementC: ImageElement = handDiv3.value;
-        handImageElementC.src = handImagePieces[1];
-        const handImageElementD: ImageElement = handDiv4.value;
-        handImageElementD.src = handImagePieces[3];
+        const handImageElementA: ImageElement | null = handDiv1.value;
+        handImageElementA!.src = handImagePieces[0];
+        const handImageElementB: ImageElement | null = handDiv2.value;
+        handImageElementB!.src = handImagePieces[2];
+        const handImageElementC: ImageElement | null = handDiv3.value;
+        handImageElementC!.src = handImagePieces[1];
+        const handImageElementD: ImageElement | null = handDiv4.value;
+        handImageElementD!.src = handImagePieces[3];
         break;
       }
       case womanImage: {
-        const womanImageElementA: ImageElement = womanDiv1.value;
-        womanImageElementA.src = womanImagePieces[0];
-        const womanImageElementB: ImageElement = womanDiv2.value;
-        womanImageElementB.src = womanImagePieces[2];
-        const womanImageElementC: ImageElement = womanDiv3.value;
-        womanImageElementC.src = womanImagePieces[1];
-        const womanImageElementD: ImageElement = womanDiv4.value;
-        womanImageElementD.src = womanImagePieces[3];
+        const womanImageElementA: ImageElement | null = womanDiv1.value;
+        womanImageElementA!.src = womanImagePieces[0];
+        const womanImageElementB: ImageElement | null = womanDiv2.value;
+        womanImageElementB!.src = womanImagePieces[2];
+        const womanImageElementC: ImageElement | null = womanDiv3.value;
+        womanImageElementC!.src = womanImagePieces[1];
+        const womanImageElementD: ImageElement | null = womanDiv4.value;
+        womanImageElementD!.src = womanImagePieces[3];
         break;
       }
       default:
@@ -172,8 +172,10 @@ const slideFunction = (arg: string) => {
 
       for (const imgDiv of imageDivs) {
         gsap.to(`.bg_${counter.value - 1} ${imgDiv}`, {
-          xPercent: imgDiv == '.one' ? 100 : imgDiv == '.four' ? -100 : null,
-          yPercent: imgDiv == '.two' ? 100 : imgDiv == '.three' ? -100 : null,
+          xPercent:
+            imgDiv == '.one' ? 100 : imgDiv == '.four' ? -100 : undefined,
+          yPercent:
+            imgDiv == '.two' ? 100 : imgDiv == '.three' ? -100 : undefined,
           display: 'none',
           duration: 1,
           ease: 'sine.inOut',
@@ -189,8 +191,8 @@ const slideFunction = (arg: string) => {
 
       for (const imgDiv of imageDivs) {
         gsap.to(`.bg_${counter.value} ${imgDiv}`, {
-          xPercent: imgDiv == '.one' ? 0 : imgDiv == '.four' ? 0 : null,
-          yPercent: imgDiv == '.two' ? 0 : imgDiv == '.three' ? 0 : null,
+          xPercent: imgDiv == '.one' ? 0 : imgDiv == '.four' ? 0 : undefined,
+          yPercent: imgDiv == '.two' ? 0 : imgDiv == '.three' ? 0 : undefined,
           display: 'block',
           duration: 1,
           ease: 'sine.inOut',

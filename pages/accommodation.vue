@@ -1,7 +1,6 @@
 <script setup lang="ts">
-definePageMeta({
+useHead({
   title: 'Imaginary Bungalows Accommodation',
-  layout: 'page-layout',
 });
 
 type roomType = {
@@ -11,34 +10,33 @@ type roomType = {
   image: string;
 };
 
+const textPlaceholder =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+
 const rooms: Array<roomType> = [
   {
     title: 'Superior Double or Twin',
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    description: textPlaceholder,
     price: 100,
-    image: '../assets/images/room.webp',
+    image: '/_nuxt/assets/images/room.webp',
   },
   {
     title: 'Superior Triple',
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    description: textPlaceholder,
     price: 150,
-    image: '../../assets/images/room.webp',
+    image: '/_nuxt/assets/images/room.webp',
   },
   {
     title: 'Two Bedroom Family Suite',
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    description: textPlaceholder,
     price: 200,
-    image: '../../assets/images/room.webp',
+    image: '/_nuxt/assets/images/room.webp',
   },
   {
     title: 'Luxury Villa',
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    description: textPlaceholder,
     price: 400,
-    image: '../../assets/images/room.webp',
+    image: '/_nuxt/assets/images/room.webp',
   },
 ];
 </script>

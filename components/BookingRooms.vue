@@ -4,7 +4,7 @@ import { type PropType } from 'vue';
 import { type bookingDates } from './BookingMenu.vue';
 
 const props = defineProps({
-  dates: { type: Object as PropType<bookingDates>, required: true },
+  dates: { type: Object as PropType<bookingDates | undefined>, required: true },
   visitors: Number,
 });
 
@@ -22,13 +22,13 @@ const err = ref<string | null>(null);
 let controller: AbortController | null = null;
 const availableUnits = ref<Array<any>>([]);
 const roomType = ref<string | null>(null);
-const bookedUnits = ref<number | null>(1);
+const bookedUnits = ref<number | undefined>(1);
 const rPrice = ref<number | null>(100);
 const showBookingForm = ref<boolean | null>(false);
 
 const getRooms = async () => {
   loading.value = true;
-  refreshNuxtData();
+  clearNuxtData();
   controller?.abort();
   try {
     controller = new AbortController();
@@ -37,8 +37,10 @@ const getRooms = async () => {
       pending,
       error,
     } = await useFetch<Availrooms[]>(
-      `/api/getRooms?startDate=${props.dates.start}&endDate=${props.dates.end}`,
-      { initialCache: false, signal: controller.signal }
+      `/api/getRooms?startDate=${props.dates!.start}&endDate=${
+        props.dates!.end
+      }`,
+      { signal: controller.signal }
     );
     if (response?.value?.length === 0) {
       loading.value = false;
@@ -50,11 +52,11 @@ const getRooms = async () => {
         'Something went wrong. If the error persists, please contact the administrator');
     }
     loading.value = pending.value;
-    response.value.map((room) => {
+    response.value!.map((room) => {
       room.bookedUnits = 1;
     });
     rooms.value = response.value;
-  } catch (e) {
+  } catch (e: any) {
     err.value =
       'Something went wrong. If the error persists, please contact the administrator';
     console.log(e.message);
@@ -77,9 +79,9 @@ onMounted(() => {
     v-if="showBookingForm"
     :dates="props.dates"
     :visitors="props.visitors"
-    :rType="roomType"
+    :rType="(roomType as string)"
     :bookedUnits="bookedUnits"
-    :rPrice="rPrice"
+    :rPrice="(rPrice as number)"
     :availableUnits="availableUnits"
   />
   <div
@@ -109,18 +111,24 @@ onMounted(() => {
               class="w-24"
               :src="`${
                 room.title.includes('Double')
-                  ? '../assets/images/room.webp'
+                  ? '/_nuxt/assets/images/room.webp'
                   : room.title.includes('Luxury')
-                  ? '../assets/images/room.webp'
+                  ? '/_nuxt/assets/images/room.webp'
                   : room.title.includes('Family')
-                  ? '../assets/images/room.webp'
+                  ? '/_nuxt/assets/images/room.webp'
                   : room.title.includes('Triple')
-                  ? '../assets/images/room.webp'
+                  ? '/_nuxt/assets/images/room.webp'
                   : null
               }`"
             />
           </td>
-          <td>{{ room.title }} ({{ room.accommodation }} Guests)</td>
+          <td>
+            <NuxtLink to="/accommodation" class="hover:underline">{{
+              room.title
+            }}</NuxtLink>
+            ({{ room.accommodation }}
+            Guests)
+          </td>
           <td>
             <div
               class="flex flex-row text-black items-center justify-center space-x-2"
@@ -128,8 +136,8 @@ onMounted(() => {
               <p
                 class="w-8 leading-6 h-8 text-center text-3xl cursor-pointer rounded-full bg-white"
                 @click="
-                  room.bookedUnits > 1
-                    ? (room.bookedUnits -= 1)
+                  room.bookedUnits! > 1
+                    ? (room.bookedUnits! -= 1)
                     : (room.bookedUnits = 1)
                 "
               >
@@ -141,8 +149,8 @@ onMounted(() => {
               <p
                 class="w-8 h-8 leading-6 text-center text-3xl cursor-pointer rounded-full bg-white"
                 @click="
-                  room.bookedUnits < room.availUnits.length
-                    ? (room.bookedUnits += 1)
+                  room.bookedUnits! < room.availUnits.length
+                    ? (room.bookedUnits! += 1)
                     : (room.bookedUnits = room.availUnits.length)
                 "
               >

@@ -1,7 +1,70 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+
+useHead({
+  title: 'Imaginary Bungalows',
+});
+
+gsap.registerPlugin(ScrollTrigger);
+const expImgs = ref<HTMLDivElement | null>(null);
+const expImgOne = ref<HTMLDivElement | null>(null);
+const expImgTwo = ref<HTMLDivElement | null>(null);
+const expImgThree = ref<HTMLDivElement | null>(null);
+const locImgs = ref<HTMLDivElement | null>(null);
+const locImgOne = ref<HTMLDivElement | null>(null);
+const locImgTwo = ref<HTMLDivElement | null>(null);
+const relaxText = ref<HTMLDivElement | null>(null);
+
+onMounted(() => {
+  gsap.from(expImgs?.value, {
+    scrollTrigger: { trigger: expImgs?.value, scrub: 1 },
+    y: 100,
+    duration: 1,
+  });
+  gsap.from(expImgOne?.value, {
+    scrollTrigger: { trigger: expImgs?.value, scrub: 1 },
+    rotation: 15,
+    duration: 0.3,
+  });
+  gsap.from(expImgTwo?.value, {
+    scrollTrigger: { trigger: expImgs?.value, scrub: 1 },
+    rotation: 25,
+    duration: 0.3,
+  });
+  gsap.from(expImgThree?.value, {
+    scrollTrigger: { trigger: expImgs?.value, scrub: 1 },
+    rotation: -25,
+    duration: 0.3,
+  });
+  gsap.from(locImgs?.value, {
+    scrollTrigger: { trigger: locImgs?.value, scrub: 1 },
+    y: 100,
+    duration: 1,
+  });
+  gsap.from(locImgOne?.value, {
+    scrollTrigger: { trigger: locImgs?.value, scrub: 1 },
+    rotation: 15,
+    duration: 0.3,
+  });
+  gsap.from(locImgTwo?.value, {
+    scrollTrigger: { trigger: locImgs?.value, scrub: 1 },
+    rotation: -25,
+    duration: 0.3,
+  });
+  gsap.from(relaxText?.value, {
+    scrollTrigger: { trigger: relaxText?.value, scrub: 1 },
+    y: -25,
+    duration: 0.3,
+  });
+});
+</script>
+
 <template>
   <div class="min-h-screen">
     <section
-      class="h-screen w-full bg-[url('../assets/images/welcome.webp')] bg-cover bg-center bg-fixed"
+      class="h-screen w-full bg-[url('~/assets/images/welcome.webp')] bg-cover bg-center bg-fixed"
     >
       <h1
         class="text-[24px] md:text-[52px] 3xl:text-[72px] pt-[153px] md:pt-[233px] 3xl:pt-[333px] text-center font-presentational"
@@ -76,62 +139,3 @@
     </main>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
-
-gsap.registerPlugin(ScrollTrigger);
-const expImgs = ref<HTMLDivElement | null>(null);
-const expImgOne = ref<HTMLDivElement | null>(null);
-const expImgTwo = ref<HTMLDivElement | null>(null);
-const expImgThree = ref<HTMLDivElement | null>(null);
-const locImgs = ref<HTMLDivElement | null>(null);
-const locImgOne = ref<HTMLDivElement | null>(null);
-const locImgTwo = ref<HTMLDivElement | null>(null);
-const relaxText = ref<HTMLDivElement | null>(null);
-
-onMounted(() => {
-  gsap.from(expImgs?.value, {
-    scrollTrigger: { trigger: expImgs?.value, scrub: 1 },
-    y: 100,
-    duration: 1,
-  });
-  gsap.from(expImgOne?.value, {
-    scrollTrigger: { trigger: expImgs?.value, scrub: 1 },
-    rotation: 15,
-    duration: 0.3,
-  });
-  gsap.from(expImgTwo?.value, {
-    scrollTrigger: { trigger: expImgs?.value, scrub: 1 },
-    rotation: 25,
-    duration: 0.3,
-  });
-  gsap.from(expImgThree?.value, {
-    scrollTrigger: { trigger: expImgs?.value, scrub: 1 },
-    rotation: -25,
-    duration: 0.3,
-  });
-  gsap.from(locImgs?.value, {
-    scrollTrigger: { trigger: locImgs?.value, scrub: 1 },
-    y: 100,
-    duration: 1,
-  });
-  gsap.from(locImgOne?.value, {
-    scrollTrigger: { trigger: locImgs?.value, scrub: 1 },
-    rotation: 15,
-    duration: 0.3,
-  });
-  gsap.from(locImgTwo?.value, {
-    scrollTrigger: { trigger: locImgs?.value, scrub: 1 },
-    rotation: -25,
-    duration: 0.3,
-  });
-  gsap.from(relaxText?.value, {
-    scrollTrigger: { trigger: relaxText?.value, scrub: 1 },
-    y: -25,
-    duration: 0.3,
-  });
-});
-</script>

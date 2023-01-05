@@ -7,7 +7,7 @@ const props = defineProps({
 });
 
 const bookingDetails = reactive<
-  Array<{ label: string; value: string | number }>
+  Array<{ label: string; value: string | undefined }>
 >([
   { label: 'Check-In: ', value: props.startDate },
   { label: 'Check-Out:', value: props.endDate },
