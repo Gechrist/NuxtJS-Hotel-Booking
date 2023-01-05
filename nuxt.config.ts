@@ -21,6 +21,7 @@ export default defineNuxtConfig({
     '/privacypolicy': { static: true },
     '/services': { static: true },
   },
+  nitro: { preset: 'netlify' },
   css: ['~/assets/css/tailwind.css'],
   postcss: {
     plugins: {
