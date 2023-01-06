@@ -10,7 +10,7 @@ const servicesDesc =
     <div class="py-6">
       <img
         class="float-right w-3/6 p-2"
-        src="images/chef.webp"
+        src="/images/chef.webp"
         alt="Imaginary Bungalows chef"
       />
       <p class="lg:text-xl">{{ servicesDesc }}{{ servicesDesc }}</p>
@@ -18,7 +18,7 @@ const servicesDesc =
     <div class="py-6">
       <img
         class="float-left w-3/6 p-2"
-        src="images/massage.webp"
+        src="/images/massage.webp"
         alt="Imaginary Bungalows massage"
       />
       <p class="lg:text-xl">{{ servicesDesc }}{{ servicesDesc }}</p>
@@ -26,7 +26,7 @@ const servicesDesc =
     <div class="py-6">
       <img
         class="float-right w-3/6 p-2"
-        src="images/jacuzzi.webp"
+        src="/images/jacuzzi.webp"
         alt="Imaginary Bungalows jacuzzi"
       />
       <p class="lg:text-xl">{{ servicesDesc }}{{ servicesDesc }}</p>
@@ -34,7 +34,7 @@ const servicesDesc =
     <div class="py-6 md:pb-20">
       <img
         class="float-left w-3/6 p-2"
-        src="images/haka.webp"
+        src="/images/haka.webp"
         alt="Imaginary Bungalows haka show"
       />
       <p class="lg:text-xl">{{ servicesDesc }}{{ servicesDesc }}</p>

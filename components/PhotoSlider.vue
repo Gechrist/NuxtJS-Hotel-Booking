@@ -4,19 +4,19 @@ import { gsap } from 'gsap';
 
 const leisureImages: { address: string; alttext: string }[] = [
   {
-    address: 'images/hand_touching_water.webp',
+    address: '/images/hand_touching_water.webp',
     alttext: 'imaginary bungalows hand in water',
   },
   {
-    address: 'images/meditation.webp',
+    address: '/images/meditation.webp',
     alttext: 'imaginary bungalows meditation',
   },
   {
-    address: 'images/woman_in_water.webp',
+    address: '/images/woman_in_water.webp',
     alttext: 'imaginary bungalows woman in water',
   },
   {
-    address: 'images/man_relaxing_water.webp',
+    address: '/images/man_relaxing_water.webp',
     alttext: 'imaginary bungalows man relaxing water',
   },
 ];

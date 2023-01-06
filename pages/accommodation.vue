@@ -18,25 +18,25 @@ const rooms: Array<roomType> = [
     title: 'Superior Double or Twin',
     description: textPlaceholder,
     price: 100,
-    image: 'images/room.webp',
+    image: '/images/room.webp',
   },
   {
     title: 'Superior Triple',
     description: textPlaceholder,
     price: 150,
-    image: 'images/room.webp',
+    image: '/images/room.webp',
   },
   {
     title: 'Two Bedroom Family Suite',
     description: textPlaceholder,
     price: 200,
-    image: 'images/room.webp',
+    image: '/images/room.webp',
   },
   {
     title: 'Luxury Villa',
     description: textPlaceholder,
     price: 400,
-    image: 'images/room.webp',
+    image: '/images/room.webp',
   },
 ];
 </script>
