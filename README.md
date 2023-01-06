@@ -2,7 +2,7 @@
 
 ## OVERVIEW
 
-This is a Resort Presentation and Booking site built with [Nuxt 3](https://vuejs.org/) and [TailwindCSS](https://tailwindcss.com/), deployed with [Vercel](https://next-js-imdb.vercel.app). The site makes use of AWS Services, specifically Amazon DynamoDB, Amazon Lambda functions and Amazon API Gateway.
+This is a Resort Presentation and Booking site built with [Nuxt 3](https://vuejs.org/) and [TailwindCSS](https://tailwindcss.com/), deployed with [Netlify](https://nuxt3-js-imaginarybungalows.netlify.app/). The site makes use of AWS Services, specifically Amazon DynamoDB, Amazon Lambda functions and Amazon API Gateway.
 
 ## INSTALL INSTRUCTIONS
 
