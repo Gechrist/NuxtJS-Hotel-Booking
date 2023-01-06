@@ -11,7 +11,7 @@ const featuresDesc =
     <div class="py-6">
       <img
         class="float-right w-3/6 p-2"
-        src="~/assets/images/sea&pool.webp"
+        src="images/sea&pool.webp"
         alt="Imaginary Bungalows ocean pool"
       />
       <p class="lg:text-xl">{{ featuresDesc }}{{ featuresDesc }}</p>
@@ -19,7 +19,7 @@ const featuresDesc =
     <div class="py-6">
       <img
         class="float-left w-3/6 p-2"
-        src="~/assets/images/deck&pool.webp"
+        src="images/deck&pool.webp"
         alt="Imaginary Bungalows deck pool"
       />
       <p class="lg:text-xl">{{ featuresDesc }}{{ featuresDesc }}</p>
@@ -27,7 +27,7 @@ const featuresDesc =
     <div class="py-6">
       <img
         class="float-right w-3/6 p-2"
-        src="~/assets/images/inner_resort.webp"
+        src="images/inner_resort.webp"
         alt="Imaginary Bungalows deck pool"
       />
       <p class="lg:text-xl">{{ featuresDesc }}{{ featuresDesc }}</p>
@@ -35,7 +35,7 @@ const featuresDesc =
     <div class="py-6">
       <img
         class="float-left w-3/6 p-2"
-        src="~/assets/images/swing.webp"
+        src="images/swing.webp"
         alt="Imaginary Bungalows deck pool"
       />
       <p class="lg:text-xl">{{ featuresDesc }}{{ featuresDesc }}</p>

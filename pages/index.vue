@@ -64,7 +64,7 @@ onMounted(() => {
 <template>
   <div class="min-h-screen">
     <section
-      class="h-screen w-full bg-[url('~/assets/images/welcome.webp')] bg-cover bg-center bg-fixed"
+      class="h-screen w-full bg-[url('images/welcome.webp')] bg-cover bg-center bg-fixed"
     >
       <h1
         class="text-[24px] md:text-[52px] 3xl:text-[72px] pt-[153px] md:pt-[233px] 3xl:pt-[333px] text-center font-presentational"
@@ -82,19 +82,19 @@ onMounted(() => {
         <section ref="expImgs" class="">
           <img
             ref="expImgOne"
-            src="../assets/images/sunset&bungalow.webp"
+            src="images/sunset&bungalow.webp"
             alt="imaginary bungalows sunset"
             class="w-5/6 3xl:w-full rounded"
           />
           <img
             ref="expImgTwo"
-            src="../assets/images/jetski.webp"
+            src="images/jetski.webp"
             alt="imaginary bungalows sunset"
             class="w-2/6 3xl:w-3/6 rounded absolute -bottom-8 md:bottom-20 md:-left-10 -left-8 3xl:-left-12 -rotate-[10deg]"
           />
           <img
             ref="expImgThree"
-            src="../assets/images/food.webp"
+            src="images/food.webp"
             alt="imaginary bungalows sunset"
             class="w-2/6 3xl:w-3/6 rounded absolute right-6 3xl:right-0 bottom-4 rotate-[10deg]"
           />
@@ -106,13 +106,13 @@ onMounted(() => {
         <section ref="locImgs">
           <img
             ref="locImgOne"
-            src="../assets/images/palmtrees&beach.webp"
+            src="images/palmtrees&beach.webp"
             alt="imaginary bungalows beach with palmtrees"
             class="w-5/6 3xl:w-full rounded -rotate-2 relative left-4"
           />
           <img
             ref="locImgTwo"
-            src="../assets/images/cliffs&beach.webp"
+            src="images/cliffs&beach.webp"
             alt="imaginary bungalows cliffs beach"
             class="w-5/6 3xl:w-full rounded absolute -bottom-28 md:bottom-10 right-4 md:-right-0 lg:-right-32 -rotate-[5deg]"
           />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, watchEffect } from 'vue';
 import { gsap } from 'gsap';
 
 export type bookingDates = { start: Date; end: Date };
@@ -13,6 +13,8 @@ const bookingMenu = ref<HTMLDivElement | null>(null);
 const bookingDates = ref<bookingDates>();
 const showCalendar = ref<boolean>(false);
 const showRooms = ref<boolean>(false);
+const missingData = ref<boolean>(false);
+const trackData = ref<boolean>(false);
 
 const on = () => {
   animateSearchIcon.value = true;
@@ -27,13 +29,24 @@ const displayCalendar = () => {
 };
 
 const bookRooms = () => {
+  trackData.value = true;
   if (!bookingDates.value || !guestsNumber.value) {
+    missingData.value = true;
     return true;
   }
+  trackData.value = false;
+  missingData.value = false;
   showCalendar.value = false;
   showRooms.value = true;
 };
 
+watchEffect(() => {
+  if (trackData.value && (!guestsNumber.value || !bookingDates.value)) {
+    missingData.value = true;
+  } else {
+    missingData.value = false;
+  }
+});
 onMounted(() => {
   if (process.client) {
     gsap.from(bookingMenu?.value, {
@@ -70,6 +83,9 @@ onUnmounted(() => {
           :dates="bookingDates"
           :visitors="guestsNumber"
         />
+      </section>
+      <section class="text-white text-center pb-10" v-if="missingData">
+        <p>Please select dates and/or the number of guests</p>
       </section>
       <div
         class="w-5/6 mx-auto flex flex-row shrink-0 justify-between px-8 mb-2 items-center rounded-full h-12 bg-cyan-500"

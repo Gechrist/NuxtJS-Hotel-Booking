@@ -111,13 +111,13 @@ onMounted(() => {
               class="w-24"
               :src="`${
                 room.title.includes('Double')
-                  ? '../assets/images/room.webp'
+                  ? 'images/room.webp'
                   : room.title.includes('Luxury')
-                  ? '../assets/images/room.webp'
+                  ? 'images/room.webp'
                   : room.title.includes('Family')
-                  ? '../assets/images/room.webp'
+                  ? 'images/room.webp'
                   : room.title.includes('Triple')
-                  ? '../assets/images/room.webp'
+                  ? 'images/room.webp'
                   : null
               }`"
             />
