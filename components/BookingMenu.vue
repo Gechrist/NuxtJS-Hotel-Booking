@@ -70,8 +70,13 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <div ref="bookingMenu" class="w-full min-h-screen z-40 fixed bg-cyan-700">
-    <div class="h-screen overflow-y-auto scrollbar-hide flex flex-col">
+  <div
+    ref="bookingMenu"
+    class="w-full min-h-mobileScreen md:min-h-screen z-40 fixed bg-cyan-700"
+  >
+    <div
+      class="h-mobileScreen md:h-screen overflow-y-auto scrollbar-hide flex flex-col"
+    >
       <section class="grow">
         <bookingCalendar
           class="mt-0.5 md:mt-28 w-5/6 mx-auto flex justify-center"

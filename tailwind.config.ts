@@ -24,6 +24,12 @@ module.exports = {
         functional: ['Dosis', 'Arial'],
         presentational: ['Satisfy', 'Arial'],
       },
+      height: {
+        mobileScreen: 'calc(var(--vh) * 100)',
+      },
+      minHeight: {
+        mobileScreen: 'calc(var(--vh) * 100)',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],
