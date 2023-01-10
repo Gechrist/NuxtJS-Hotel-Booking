@@ -46,7 +46,11 @@ const rooms: Array<roomType> = [
     <section v-for="(room, index) in rooms">
       <div v-if="index % 2 === 0" class="flex flex-row space-x-4 items-center">
         <div class="flex flex-col w-2/6 items-center">
-          <img class="w-full rounded" :src="room.image" />
+          <img
+            class="w-full rounded"
+            :src="room.image"
+            alt="imaginary bungalows room"
+          />
           <h3 class="font-semibold text-lg text-center">{{ room.title }}</h3>
           <p>Price: {{ room.price }}€/Night</p>
         </div>
@@ -55,7 +59,11 @@ const rooms: Array<roomType> = [
       <div v-if="index % 2 !== 0" class="flex flex-row space-x-4 items-center">
         <p class="w-4/6">{{ room.description }}</p>
         <div class="flex flex-col w-2/6 items-center">
-          <img class="w-full rounded" :src="room.image" />
+          <img
+            class="w-full rounded"
+            :src="room.image"
+            alt="imaginary bungalows room"
+          />
           <h3 class="font-semibold text-lg text-center">{{ room.title }}</h3>
           <p>Price: {{ room.price }}€/Night</p>
         </div>

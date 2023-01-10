@@ -28,7 +28,7 @@ const featuresDesc =
       <img
         class="float-right w-3/6 p-2"
         src="/images/inner_resort.webp"
-        alt="Imaginary Bungalows deck pool"
+        alt="Imaginary Bungalows facilities"
       />
       <p class="lg:text-xl">{{ featuresDesc }}{{ featuresDesc }}</p>
     </div>
@@ -36,7 +36,7 @@ const featuresDesc =
       <img
         class="float-left w-3/6 p-2"
         src="/images/swing.webp"
-        alt="Imaginary Bungalows deck pool"
+        alt="Imaginary Bungalows swing"
       />
       <p class="lg:text-xl">{{ featuresDesc }}{{ featuresDesc }}</p>
     </div>

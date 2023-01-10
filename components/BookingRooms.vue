@@ -120,6 +120,7 @@ onMounted(() => {
                   ? '/images/room.webp'
                   : null
               }`"
+              alt="imaginary bungalows room"
             />
           </td>
           <td>

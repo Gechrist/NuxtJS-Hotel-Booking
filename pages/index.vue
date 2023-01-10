@@ -89,13 +89,13 @@ onMounted(() => {
           <img
             ref="expImgTwo"
             src="/images/jetski.webp"
-            alt="imaginary bungalows sunset"
+            alt="imaginary bungalows jetski"
             class="w-2/6 3xl:w-3/6 rounded absolute -bottom-8 md:bottom-20 md:-left-10 -left-8 3xl:-left-12 -rotate-[10deg]"
           />
           <img
             ref="expImgThree"
             src="/images/food.webp"
-            alt="imaginary bungalows sunset"
+            alt="imaginary bungalows food"
             class="w-2/6 3xl:w-3/6 rounded absolute right-6 3xl:right-0 bottom-4 rotate-[10deg]"
           />
         </section>
