@@ -1,4 +1,4 @@
-# [Nuxt 3 Resort Presentation and Booking](https://dr-nikolaosmavropoulos.vercel.app/)
+# [Nuxt 3 Resort Presentation and Booking](https://nuxt3-js-imaginarybungalows.netlify.app/)
 
 ## OVERVIEW
 
@@ -9,7 +9,7 @@ This is a Resort Presentation and Booking site built with [Nuxt 3](https://vuejs
 Just clone the repository and run npm install & npm run dev:
 
 ```
-git clone https://github.com/Gechrist/VueJS-Presentation.git
+git clone https://github.com/Gechrist/NuxtJS-Hotel-Booking
 npm install
 npm run dev
 
